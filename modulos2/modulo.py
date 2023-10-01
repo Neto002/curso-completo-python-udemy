@@ -1,0 +1,2 @@
+def oi():
+    return 'oi'
