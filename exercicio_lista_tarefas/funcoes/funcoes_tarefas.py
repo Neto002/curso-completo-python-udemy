@@ -1,4 +1,4 @@
-import os
+import json
 
 
 def listar(tarefas: list) -> None:
@@ -10,6 +10,7 @@ def listar(tarefas: list) -> None:
     print("Tarefas: ")
     for tarefa in tarefas:
         print(f'\t{tarefa}')
+    print()
 
 
 def desfazer(tarefas: list, tarefas_refazer: list) -> None:
@@ -48,23 +49,17 @@ def adicionar_tarefa(tarefa: str, tarefas: list) -> None:
     listar(tarefas)
 
 
-tarefas = []
-tarefas_refazer = []
+def ler(tarefas: list, caminho_arquivo: str) -> list:
+    dados = []
+    try:
+        with open(caminho_arquivo, 'r', encoding='utf8') as arquivo:
+            dados = json.load(arquivo)
+    except FileNotFoundError:
+        print('Arquivo inexistente')
+        salvar(tarefas, caminho_arquivo)
+    return dados
 
-while True:
-    print("Comandos: listar, desfazer, refazer, clear e sair")
-    tarefa = input("Digite uma tarefa ou comando: ").strip().lower()
 
-    if tarefa == "listar":
-        listar(tarefas)
-    elif tarefa == "desfazer":
-        desfazer(tarefas, tarefas_refazer)
-    elif tarefa == "refazer":
-        refazer(tarefas, tarefas_refazer)
-    elif (tarefa == 'clear'):
-        os.system('cls')
-    elif (tarefa == 'sair'):
-        print("Saindo")
-        break
-    else:
-        adicionar_tarefa(tarefa, tarefas)
+def salvar(tarefas: list, caminho_arquivo: str) -> None:
+    with open(caminho_arquivo, 'w', encoding='utf8') as arquivo:
+        json.dump(tarefas, arquivo, indent=2, ensure_ascii=False)
