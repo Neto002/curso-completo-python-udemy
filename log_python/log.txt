@@ -8,3 +8,5 @@ Error: a LogFileMixin
 Success: b LogFileMixin
 Success: Galaxy está ligado Smartphone
 Error: Iphone está desligado Smartphone
+Success: Galaxy está ligado Smartphone
+Error: Iphone está desligado Smartphone
