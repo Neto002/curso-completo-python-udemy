@@ -5,8 +5,10 @@ from django.shortcuts import render
 
 
 def blog(request: HttpRequest) -> HttpResponse:
-    return render(request, 'blog/index.html')
+    context = {"page_name": "BLOG", "title": "Blogs"}
+    return render(request, "blog/index.html", context)
 
 
 def articles(request: HttpRequest) -> HttpResponse:
-    return render(request, 'blog/articles.html')
+    context = {"page_name": "ARTICLES", "title": "Articles"}
+    return render(request, "blog/articles.html", context)

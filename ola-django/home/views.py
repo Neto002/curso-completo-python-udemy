@@ -5,4 +5,5 @@ from django.shortcuts import render
 
 
 def home(request: HttpRequest) -> HttpResponse:
-    return render(request, 'home/index.html')
+    context = {"page_name": "HOME", "title": "Home"}
+    return render(request, 'home/index.html', context)
