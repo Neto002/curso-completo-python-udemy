@@ -1,0 +1,10 @@
+{% extends "global/base.django-html" %}
+
+{% block texto %} {{ page_name }} {% endblock texto%}
+
+{% block posts %}
+    {% include "global/partials/postblock.django-html" %}
+    {% include "global/partials/postblock.django-html" %}
+    {% include "global/partials/postblock.django-html" %}
+    {% include "global/partials/postblock.django-html" %}
+{% endblock posts %}

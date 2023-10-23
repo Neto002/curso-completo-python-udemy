@@ -1,0 +1,10 @@
+{% include "global/partials/head.django-html" %}
+{% include "global/partials/menu.django-html" %}
+    <h1>{% block texto %}BASE{% endblock texto %}</h1>
+
+    <main class="content">
+      {% block posts %}{% endblock posts %}
+    </main>
+
+  </body>
+</html>
