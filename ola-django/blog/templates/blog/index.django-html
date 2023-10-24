@@ -3,8 +3,7 @@
 {% block texto %} {{ page_name }} {% endblock texto%}
 
 {% block posts %}
-    {% include "global/partials/postblock.django-html" %}
-    {% include "global/partials/postblock.django-html" %}
-    {% include "global/partials/postblock.django-html" %}
-    {% include "global/partials/postblock.django-html" %}
+    {% for post in posts %}
+        {% include "global/partials/postblock.django-html" %}
+    {% endfor %}
 {% endblock posts %}
